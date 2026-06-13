@@ -7,7 +7,7 @@ export default function Landing () {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch('/api/route')
+        fetch('/api/room')
         .then((res) => res.json())
         .then((data) =>  {
             setData(data);
