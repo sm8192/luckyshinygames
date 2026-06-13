@@ -1,8 +1,10 @@
 import Image from "next/image";
+import Landing from "./UI/landing";
 
 export default function Home() {
   return (
-    <div >Hey Shane, you really did it
+    <div >
+      <Landing />
     </div>
   );
 }
