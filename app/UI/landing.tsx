@@ -19,7 +19,7 @@ export default function Landing () {
         <div>
             { loading ?
             <h5>Loading...</h5> :
-            <p>{data}</p>
+            <p>{JSON.stringify(data)}</p>
             }
         </div>
     )
