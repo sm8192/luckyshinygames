@@ -1,9 +1,26 @@
 'use client'
 
+import { useState, useEffect } from "react";
+
 export default function Landing () {
+    const [data, setData] = useState(null);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        fetch('/api/route')
+        .then((res) => res.json())
+        .then((data) =>  {
+            setData(data);
+            setLoading(false);
+        })
+    })
+
     return (
         <div>
-            Hey Shane, it's still working
+            { loading ?
+            <h5>Loading...</h5> :
+            <p>{data}</p>
+            }
         </div>
     )
 }
