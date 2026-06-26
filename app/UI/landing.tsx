@@ -6,14 +6,14 @@ export default function Landing() {
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(true);
 
-    useEffect(() => {
+   /* useEffect(() => {
         fetch('/api/room')
             .then((res) => res.json())
             .then((data) => {
                 setData(data);
                 setLoading(false);
             })
-    }, [])
+    }, []) */
 
     return (
         <div>
