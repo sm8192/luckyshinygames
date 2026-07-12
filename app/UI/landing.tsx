@@ -17,6 +17,7 @@ export default function Landing() {
 
     return (
         <div>
+            <h5>We're back in business.</h5>
             {loading ?
                 <h5>Loading...</h5> :
                 <p>{JSON.stringify(data)}</p>
