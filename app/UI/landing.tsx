@@ -14,6 +14,7 @@ export default function Landing() {
                 setLoading(false);
             })
     }, []) */
+    
 
     return (
         <div>
