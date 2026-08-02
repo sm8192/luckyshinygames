@@ -4,7 +4,7 @@ import { useState, useEffect, SubmitEvent } from "react";
 import Room from "./room";
 
 export default function Landing() {
-    const [data, setData] = useState({});
+    const [data, setData] = useState(null);
     const [roomCode, setRoomCode] = useState('');
 
     useEffect(() => {
