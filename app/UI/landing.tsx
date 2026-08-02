@@ -8,14 +8,17 @@ export default function Landing() {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        console.log("Hey Shane, effect ran");
+        const fetchRoomData = (code: string) => {
+            fetch('/api/room?room_id=' + code)
+                .then((res) => res.json())
+                .then((data) => {
+                    console.log("data is " + data);
+                })
+        }
 
-        /*fetch('/api/room')
-            .then((res) => res.json())
-            .then((data) => {
-                setData(data);
-                setLoading(false);
-            }) */
+        if (roomCode) {
+            fetchRoomData(roomCode);
+        }
     }, [roomCode])
 
     const roomCodeSubmit = (event: SubmitEvent<HTMLFormElement>) => {
