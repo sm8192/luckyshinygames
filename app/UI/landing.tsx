@@ -32,8 +32,8 @@ export default function Landing() {
 
 
     return (
-        <div className="m-8 flex flex-col items-center">
-            <form onSubmit={roomCodeSubmit}>
+        <div className="m-8">
+            <form className="flex flex-col items-center" onSubmit={roomCodeSubmit}>
                 <h5>Enter room code:</h5>
                 <div>
                     <input id='room-code-input'
