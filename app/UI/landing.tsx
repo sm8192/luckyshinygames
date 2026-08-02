@@ -24,7 +24,7 @@ export default function Landing() {
         <div>
             <h5>Enter room code:</h5>
             <div><input id='room-code-input' type="text"></input></div>
-            <div><button className="outline-2 outline-blue-500" onClick={roomCodeButtonClick}></button></div>
+            <div><button className="outline-2 outline-blue-500" onClick={roomCodeButtonClick}>Enter Room</button></div>
             {loading ?
                 <h5>Loading...</h5> :
                 <p>Not Loading</p>
