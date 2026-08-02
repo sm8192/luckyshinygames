@@ -21,10 +21,10 @@ export default function Landing() {
 
 
     return (
-        <div className="m-8 flex flex-col">
+        <div className="m-8 flex flex-col items-center">
             <h5>Enter room code:</h5>
-            <div><input id='room-code-input' type="text"></input></div>
-            <div><button className="outline-2 outline-slate-50 rounded-xl" onClick={roomCodeButtonClick}>Enter Room</button></div>
+            <div><input id='room-code-input' type="text" className="outline outline-slate-800"></input></div>
+            <div><button className="outline-2 outline-slate-800 rounded-xl p-2" onClick={roomCodeButtonClick}>Enter Room</button></div>
             {loading ?
                 <h5>Loading...</h5> :
                 <p>Not Loading</p>
