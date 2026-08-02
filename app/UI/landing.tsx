@@ -30,7 +30,6 @@ export default function Landing() {
         setRoomCode(newRoomCode);
     }
 
-
     return (
         <div className="m-8">
             {data ?
