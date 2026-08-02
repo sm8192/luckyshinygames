@@ -1,7 +1,17 @@
 'use client'
 
-import {useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 
-export default function Room() {
-    
+interface roomProps {
+    data: object
+}
+
+export default function Room({ data }: roomProps) {
+
+
+    return (
+        <div>
+            {JSON.stringify(data)}
+        </div>
+    )
 }
