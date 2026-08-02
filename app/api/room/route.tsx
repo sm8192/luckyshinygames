@@ -1,12 +1,14 @@
 import { neon } from "@neondatabase/serverless";
-import { NextResponse } from "next/server";
+import { NextResponse, NextRequest } from "next/server";
 
-export async function GET() {
-
+export async function GET(request: NextRequest) {
     try {
         const sql = neon(process.env.DATABASE_URL);
 
-        const response = await sql`SELECT * FROM rooms`;
+        const searchParams = request.nextUrl.searchParams;
+        const roomString = searchParams.get('room_id');
+
+        const response = await sql`SELECT * FROM rooms WHERE code = ${roomString}`;
 
         return NextResponse.json(response, {status: 200})
 
