@@ -10,9 +10,9 @@ export async function GET(request: NextRequest) {
 
         const response = await sql`SELECT game, board_id FROM rooms WHERE code = ${roomString}`;
 
-        return NextResponse.json(response, {status: 200})
+        return NextResponse.json(response, { status: 200 })
 
     } catch (error: any) {
-        return NextResponse.json({error: 'Internal Server Error'}, {status: 500});
+        return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
     }
 }
