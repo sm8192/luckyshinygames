@@ -20,23 +20,23 @@ export default function Landing() {
         }
 
         if (roomCode) {
-            fetchRoomData(roomCode);
+            console.log("before the fetch");
+            try {
+                fetchRoomData(roomCode);
+            } catch (error) {
+                console.log("Error is " + error);
+            }
+            console.log('after the fetch');
         }
     }, [roomCode])
 
     const roomCodeSubmit = (event: SubmitEvent<HTMLFormElement>) => {
-        console.log("tried to submit");
-        try {
+        event.preventDefault();
 
-            event.preventDefault();
+        const formData = new FormData(event.currentTarget);
+        const newRoomCode = String(formData.get("room-code"));
 
-            const formData = new FormData(event.currentTarget);
-            const newRoomCode = String(formData.get("room-code"));
-
-            setRoomCode(newRoomCode);
-        } catch (error) {
-            console.log("error is " + error);
-        }
+        setRoomCode(newRoomCode);
     }
 
     return (
