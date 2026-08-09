@@ -9,25 +9,19 @@ export default function Landing() {
     const [roomCode, setRoomCode] = useState('');
 
     useEffect(() => {
-        console.log("fetching, roomCode is " + roomCode);
         const fetchRoomData = (code: string) => {
             fetch('/api/room?room_id=' + code)
                 .then((res) => res.json())
                 .then((data) => {
                     console.log("data is " + JSON.stringify(data));
                     setGame(data.game);
+                    console.log("game is " + game);
                     setBoardId(data.board_id);
                 })
         }
 
         if (roomCode) {
-            console.log("before the fetch");
-            try {
-                fetchRoomData(roomCode);
-            } catch (error) {
-                console.log("Error is " + error);
-            }
-            console.log('after the fetch');
+            fetchRoomData(roomCode);
         }
     }, [roomCode])
 
