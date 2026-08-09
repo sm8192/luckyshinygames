@@ -9,6 +9,8 @@ interface ticTacToeBoardProps {
 export default function TicTacToeBoard({ boardId }: ticTacToeBoardProps) {
     const [loading, setLoading] = useState(true)
     const [boardState, setBoardState] = useState<string[][]>([["", "", ""], ["", "", ""], ["", "", ""]]);
+    const [players, setPlayers] = useState<object>({ X: "", O: "" });
+    const [activePlayer, setActivePlayer] = useState<string>("");
 
     useEffect(() => {
         const fetchTTTBoardData = (id: number) => {
@@ -16,7 +18,9 @@ export default function TicTacToeBoard({ boardId }: ticTacToeBoardProps) {
                 .then((res) => res.json())
                 .then((data) => {
                     setLoading(false);
-                    console.log("ttt data is " + JSON.stringify(data));
+                    setBoardState(data[0].board_state);
+                    setPlayers(data[0].players);
+                    setActivePlayer(data[0].active_player);
                 });
         }
 
