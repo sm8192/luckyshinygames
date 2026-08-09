@@ -24,6 +24,7 @@ export default function Landing() {
     }, [roomCode])
 
     const roomCodeSubmit = (event: SubmitEvent<HTMLFormElement>) => {
+        console.log("tried to submit");
         event.preventDefault();
 
         const formData = new FormData(event.currentTarget);
