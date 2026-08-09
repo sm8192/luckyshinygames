@@ -9,6 +9,7 @@ export default function Landing() {
     const [roomCode, setRoomCode] = useState('');
 
     useEffect(() => {
+        console.log("fetching, roomCode is " + roomCode);
         const fetchRoomData = (code: string) => {
             fetch('/api/room?room_id=' + code)
                 .then((res) => res.json())
@@ -25,12 +26,17 @@ export default function Landing() {
 
     const roomCodeSubmit = (event: SubmitEvent<HTMLFormElement>) => {
         console.log("tried to submit");
-        event.preventDefault();
+        try {
 
-        const formData = new FormData(event.currentTarget);
-        const newRoomCode = String(formData.get("room-code"));
+            event.preventDefault();
 
-        setRoomCode(newRoomCode);
+            const formData = new FormData(event.currentTarget);
+            const newRoomCode = String(formData.get("room-code"));
+
+            setRoomCode(newRoomCode);
+        } catch (error) {
+            console.log("error is " + error);
+        }
     }
 
     return (
