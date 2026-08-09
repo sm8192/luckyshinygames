@@ -13,7 +13,6 @@ export default function Landing() {
             fetch('/api/room?room_id=' + code)
                 .then((res) => res.json())
                 .then((data) => {
-                    console.log("data is " + JSON.stringify(data));
                     setGame(data[0].game);
                     setBoardId(data[0].board_id);
                 })
