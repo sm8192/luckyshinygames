@@ -14,10 +14,8 @@ export default function Landing() {
                 .then((res) => res.json())
                 .then((data) => {
                     console.log("data is " + JSON.stringify(data));
-                    console.log("game is " + data.game);
-                    setGame(data.game);
-                    console.log("new game state is " + game);
-                    setBoardId(data.board_id);
+                    setGame(data[0].game);
+                    setBoardId(data[0].board_id);
                 })
         }
 
