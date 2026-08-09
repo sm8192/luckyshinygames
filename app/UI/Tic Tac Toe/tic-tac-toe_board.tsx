@@ -16,7 +16,7 @@ export default function TicTacToeBoard({ boardId }: ticTacToeBoardProps) {
                 .then((res) => res.json())
                 .then((data) => {
                     setLoading(false);
-                    console.log("ttt data is " + data);
+                    console.log("ttt data is " + JSON.stringify(data));
                 });
         }
 
