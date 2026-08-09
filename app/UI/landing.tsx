@@ -5,6 +5,8 @@ import Room from "./room";
 
 export default function Landing() {
     const [data, setData] = useState(null);
+    const [game, setGame] = useState<string>('');
+    const [boardId, setBoardId] = useState<number>(-1);
     const [roomCode, setRoomCode] = useState('');
 
     useEffect(() => {
@@ -13,6 +15,8 @@ export default function Landing() {
                 .then((res) => res.json())
                 .then((data) => {
                     setData(data);
+                    setGame(data.game);
+                    setBoardId(data.board_id);
                 })
         }
 
@@ -32,8 +36,8 @@ export default function Landing() {
 
     return (
         <div className="m-8">
-            {data ?
-                <Room data={data} /> :
+            {game ?
+                <Room game={game} boardId={boardId} /> :
                 <form className="flex flex-col items-center" onSubmit={roomCodeSubmit}>
                     <h5>Enter room code:</h5>
                     <div>

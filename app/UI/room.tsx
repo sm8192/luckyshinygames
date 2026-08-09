@@ -1,17 +1,19 @@
 'use client'
 
 import { useState, useEffect } from "react";
+import TicTacToeBoard from "./Tic Tac Toe/tic_tac_toe_board";
 
 interface roomProps {
-    data: object
+    game: string,
+    boardId: number
 }
 
-export default function Room({ data }: roomProps) {
-
+export default function Room({ game, boardId }: roomProps) {
+    
 
     return (
         <div>
-            {JSON.stringify(data)}
+            {JSON.stringify({game, boardId})}
         </div>
     )
 }
