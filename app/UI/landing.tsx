@@ -4,7 +4,6 @@ import { useState, useEffect, SubmitEvent } from "react";
 import Room from "./room";
 
 export default function Landing() {
-    const [data, setData] = useState(null);
     const [game, setGame] = useState<string>('');
     const [boardId, setBoardId] = useState<number>(-1);
     const [roomCode, setRoomCode] = useState('');
@@ -14,7 +13,6 @@ export default function Landing() {
             fetch('/api/room?room_id=' + code)
                 .then((res) => res.json())
                 .then((data) => {
-                    setData(data);
                     setGame(data.game);
                     setBoardId(data.board_id);
                 })

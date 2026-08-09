@@ -1,7 +1,6 @@
 'use client'
 
-import { useState, useEffect } from "react";
-import TicTacToeBoard from "./Tic Tac Toe/tic_tac_toe_board";
+import TicTacToeBoard from "./Tic Tac Toe/tic-tac-toe_board";
 
 interface roomProps {
     game: string,
@@ -9,11 +8,18 @@ interface roomProps {
 }
 
 export default function Room({ game, boardId }: roomProps) {
-    
+    const chooseBoard = (game: string) => {
+        switch (game) {
+            case 'tic-tac-toe':
+                return <TicTacToeBoard boardId={boardId} />
+            default:
+                return <div>Error: Game not found</div>
+        }
+    }
 
     return (
         <div>
-            {JSON.stringify({game, boardId})}
+            {chooseBoard(game)}
         </div>
     )
 }
