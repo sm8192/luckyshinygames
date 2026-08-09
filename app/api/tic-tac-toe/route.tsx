@@ -9,7 +9,7 @@ export async function GET(request: NextRequest) {
         const ticTacToeId = searchParams.get('id');
 
         //const response = await sql`SELECT board_state, players, active_player FROM tic-tac-toe_boards WHERE id = 1`;
-        const response = await sql`SELECT * FROM rooms`
+        const response = await sql`SELECT * FROM tic-tac-toe_boards`
 
         return NextResponse.json(response, { status: 200 })
 
