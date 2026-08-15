@@ -66,9 +66,13 @@ export default function Landing() {
                 const randomChar = characters[randomIndex];
                 roomCode += randomChar;
             }
+
+            if (count == 0) {
+                roomCode = 'abcabc';
+            }
+
             count++;
-            console.log('room code: ' + roomCode);
-            /*
+
             const response = await fetch('/api/room/exists?room_id=' + roomCode, {
                 method: 'GET',
                 headers: {
@@ -77,12 +81,15 @@ export default function Landing() {
             });
 
             const data = await response.json();
-            
+
             if (!data[0].exists) {
                 roomCodeExists = false;
-            }*/
+            }
 
         } while (roomCodeExists && count < 10)
+
+        console.log('final room code: ' + roomCode);
+        console.log('count: ' + count);
 
         // postRoom(roomCode);
     }
