@@ -38,9 +38,6 @@ export default function Landing() {
     }
 
     const postRoom = async (code: string) => {
-
-        console.log('posting room');
-
         const response = await fetch('/api/room', {
             method: 'POST',
             headers: {
@@ -50,7 +47,6 @@ export default function Landing() {
         });
 
         if (response.ok) {
-            console.log('new code is ' + code);
             setRoomCode(code);
         }
     }
@@ -125,9 +121,9 @@ export default function Landing() {
     }
 
     const chooseGame = async (game: string) => {
-        console.log('new game is ' + game);
-        /*
         if (game === 'tic-tac-toe') {
+            console.log('in the if');
+            /*
             const boardId = await createTicTacToeBoard();
 
             if (boardId != -1) {
@@ -138,10 +134,10 @@ export default function Landing() {
                     setBoardId(boardId);
                 }
             }
+                */
         }
 
-        setGame(game);
-        */
+        //setGame(game);
     }
 
     return (
