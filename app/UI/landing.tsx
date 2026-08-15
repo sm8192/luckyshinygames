@@ -84,7 +84,7 @@ export default function Landing() {
     }
 
     const createTicTacToeBoard = async () => {
-        /*
+
         const response = await fetch('/api/tic-tac-toe', {
             method: 'POST',
             headers: {
@@ -92,6 +92,8 @@ export default function Landing() {
             },
             body: JSON.stringify({})
         });
+
+        /*
 
         if (response.ok) {
             const data = await response.json();
@@ -122,11 +124,9 @@ export default function Landing() {
 
     const chooseGame = async (game: string) => {
         if (game === 'tic-tac-toe') {
-            console.log('in the if');
-            /*
             const boardId = await createTicTacToeBoard();
 
-            if (boardId != -1) {
+            /*if (boardId != -1) {
 
                 const patchSuccess = await patchRoomData(roomCode, game, boardId);
 
