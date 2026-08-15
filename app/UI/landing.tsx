@@ -67,10 +67,6 @@ export default function Landing() {
                 roomCode += randomChar;
             }
 
-            if (count == 0) {
-                roomCode = 'abcabc';
-            }
-
             count++;
 
             const response = await fetch('/api/room/exists?room_id=' + roomCode, {
