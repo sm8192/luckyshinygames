@@ -50,10 +50,9 @@ export default function Landing() {
         });
 
         if (response.ok) {
-            console.log('room posted');
-            //setRoomCode(code);
+            console.log('new code is ' + code);
+            setRoomCode(code);
         }
-        console.log('made it to the end');
     }
 
     const createNewRoom = async () => {
