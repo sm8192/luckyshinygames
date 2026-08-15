@@ -21,7 +21,7 @@ export async function POST(request: NextRequest) {
     try {
         const sql = neon(process.env.DATABASE_URL);
 
-        const nullBoard = [['', '', ''], ['', '', ''], ['', '', '']];
+        const nullBoard = {'board':[['', '', ''], ['', '', ''], ['', '', '']]};
         const boardString = JSON.stringify(nullBoard);
 
         const response = await sql`INSERT INTO tictactoe_boards (board_state, active_player) VALUES (${boardString}, 'X') RETURNING id`;
