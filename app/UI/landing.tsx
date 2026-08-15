@@ -14,10 +14,21 @@ export default function Landing() {
         event.preventDefault();
 
         const formData = new FormData(event.currentTarget);
-        const newRoomCode = String(formData.get("room-code"));
+        const enteredRoomCode = String(formData.get("room-code"));
 
-        console.log("Hey Shane, newRoomCode is: " + newRoomCode);
+        console.log("Hey Shane, enteredRoomCode is: " + enteredRoomCode);
 
+        const response = await fetch('/api/room?room_id=' + enteredRoomCode, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+
+        if(response.ok) {
+            console.log("Hey Shane, response is ok");
+            //const data = await response.json();
+        }
         /*
 
         const fetchRoomData = (code: string) => {
