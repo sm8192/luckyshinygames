@@ -10,11 +10,10 @@ export default function Landing() {
     const [roomCode, setRoomCode] = useState<string>('');
     const [roomNotFound, setRoomNotFound] = useState<boolean>(false);
 
-    const roomCodeSubmit = (event: SubmitEvent<HTMLFormElement>) => {
+    const roomCodeSubmit = async (event: SubmitEvent<HTMLFormElement>) => {
         event.preventDefault();
 
-        console.log("Hey Shane, this ran");
-
+        console.log("Hey Shane, this ran async");
         /*
 
         const formData = new FormData(event.currentTarget);
