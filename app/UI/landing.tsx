@@ -100,13 +100,13 @@ export default function Landing() {
         }
     }
 
-    const patchRoomData = async (roomId: string, gameId: string, boardId: number) => {
+    const patchRoomData = async (roomId: string, game: string, boardId: number) => {
         const response = await fetch('/api/room', {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ room_id: roomId, game_id: gameId, board_id: boardId })
+            body: JSON.stringify({ room_id: roomId, game: game, board_id: boardId })
         });
 
         if (response.ok) {
@@ -119,21 +119,17 @@ export default function Landing() {
     const chooseGame = async (game: string) => {
         if (game === 'tic-tac-toe') {
             const boardId = await createTicTacToeBoard();
-            console.log('boardId is ' + boardId);
-
             if (boardId != -1) {
 
                 const patchSuccess = await patchRoomData(roomCode, game, boardId);
 
-                console.log('patchSuccess is ' + patchSuccess);
-
-                /*if (patchSuccess) {
+                if (patchSuccess) {
                     setBoardId(boardId);
-                }*/
+                }
             }
         }
 
-        //setGame(game);
+        setGame(game);
     }
 
     return (
