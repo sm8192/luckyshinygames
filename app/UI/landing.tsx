@@ -26,12 +26,10 @@ export default function Landing() {
         if(response.ok) {
             const data = await response.json();
             if(data[0] && data[0].game && data[0].board_id) {
-                console.log("found");
                 //setGame(data[0].game);
                 //setBoardId(data[0].board_id);
             } else {
-                console.log("not found");
-                //setRoomNotFound(true);
+                setRoomNotFound(true);
             }
         }
         /*
@@ -177,7 +175,7 @@ export default function Landing() {
                             className="outline outline-slate-200 m-2 rounded-xs text-center"></input>
                     </div>
                     {roomNotFound ?
-                        <div className="text-red-500">Room not found</div> :
+                        <h4 className="text-red-500">Room not found</h4> :
                         <div className="hidden"></div>}
                     <div>
                         <button className="outline-2 outline-slate-200 rounded-xl p-2 m-2"
