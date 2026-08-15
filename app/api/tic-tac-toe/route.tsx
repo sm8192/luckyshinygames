@@ -21,12 +21,12 @@ export async function POST(request: NextRequest) {
     try {
         const sql = neon(process.env.DATABASE_URL);
 
-        const nullBoard = [[null, null, null], [null, null, null], [null, null, null]];
+        const nullBoard = [['', '', ''], ['', '', ''], ['', '', '']];
 
         const response = await sql`INSERT INTO tictactoe_boards (board_state, active_player) VALUES (${nullBoard}, 'X') RETURNING id`;
 
         return NextResponse.json(response, { status: 201 });
     } catch (error: unknown) {
-        return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
+        return NextResponse.json({ error: 'Internal Server Error is ' + error }, { status: 500 });
     }
 }
