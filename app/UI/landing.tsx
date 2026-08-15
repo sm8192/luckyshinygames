@@ -11,7 +11,11 @@ export default function Landing() {
     const [roomNotFound, setRoomNotFound] = useState<boolean>(false);
 
     const roomCodeSubmit = (event: SubmitEvent<HTMLFormElement>) => {
-    /*    event.preventDefault();
+        event.preventDefault();
+
+        console.log("Hey Shane, this ran");
+
+        /*
 
         const formData = new FormData(event.currentTarget);
         const newRoomCode = String(formData.get("room-code"));
