@@ -12,11 +12,10 @@ export default function Landing() {
     const [roomNotFound, setRoomNotFound] = useState<boolean>(false);
 
     const roomCodeSubmit = async (event: SubmitEvent<HTMLFormElement>) => {
-        console.log("Hey Shane, this ran");
         event.preventDefault();
 
 
-        /*
+        
 
         const formData = new FormData(event.currentTarget);
         const enteredRoomCode = String(formData.get("room-code"));
@@ -31,12 +30,13 @@ export default function Landing() {
         if(response.ok) {
             const data = await response.json();
             if(data[0] && data[0].game && data[0].board_id) {
+                console.log("Room found, game: " + data[0].game + ", board_id: " + data[0].board_id);
                 //setGame(data[0].game);
                 //setBoardId(data[0].board_id);
             } else {
                 setRoomNotFound(true);
             }
-        } */
+        } 
         /*
 
         const fetchRoomData = (code: string) => {
