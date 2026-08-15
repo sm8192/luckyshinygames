@@ -10,7 +10,6 @@ export default function Landing() {
     const [boardId, setBoardId] = useState<number>(-1);
     const [roomCode, setRoomCode] = useState<string>('');
     const [roomNotFound, setRoomNotFound] = useState<boolean>(false);
-    const [isLoading, setIsLoading] = useState<boolean>(false);
 
     const roomCodeSubmit = async (event: SubmitEvent<HTMLFormElement>) => {
         event.preventDefault();
@@ -26,7 +25,6 @@ export default function Landing() {
         });
 
         if (response.ok) {
-            setIsLoading(true);
             const data = await response.json();
             if (data[0] && data[0].game && data[0].board_id) {
                 setRoomNotFound(false);
@@ -36,7 +34,6 @@ export default function Landing() {
             } else {
                 setRoomNotFound(true);
             }
-            setIsLoading(false);
         }
         /*
 
@@ -171,18 +168,12 @@ export default function Landing() {
 
     return (
         <div className="m-8">
-            {!isLoading ?
+            {!roomCode ?
+                <RoomEntryForm roomCodeSubmit={roomCodeSubmit} roomNotFound={roomNotFound} createNewRoom={createNewRoom} /> :
                 <div>
-                    {!roomCode ?
-                        <RoomEntryForm roomCodeSubmit={roomCodeSubmit} roomNotFound={roomNotFound} createNewRoom={createNewRoom} /> :
-                        <div>
-                            {!game || !boardId ?
-                                <GameSelect chooseGame={chooseGame} /> :
-                                <Room game={game} boardId={boardId} />}
-                        </div>}
-                </div> :
-                <div>
-                    <h5>Loading</h5>
+                    {!game || !boardId ?
+                        <GameSelect chooseGame={chooseGame} /> :
+                        <Room game={game} boardId={boardId} />}
                 </div>}
         </div>
     )
