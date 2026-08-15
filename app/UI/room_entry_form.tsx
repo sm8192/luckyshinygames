@@ -9,7 +9,7 @@ interface roomEntryFormProps {
 export default function RoomEntryForm({ roomCodeSubmit, roomNotFound, createNewRoom }: roomEntryFormProps) {
     return (
         <div>
-            <form className="flex flex-col items-center" onSubmit={roomCodeSubmit()}>
+            <form className="flex flex-col items-center" onSubmit={(e) => roomCodeSubmit(e)}>
                 <h5>Enter room code:</h5>
                 <div>
                     <input id='room-code-input'
@@ -27,7 +27,7 @@ export default function RoomEntryForm({ roomCodeSubmit, roomNotFound, createNewR
                 <div>
                     <button className="outline-2 outline-slate-200 rounded-xl p-2 m-2"
                         type='button'
-                        onClick={createNewRoom()}>
+                        onClick={(e) => createNewRoom(e)}>
                         Create New Room
                     </button>
                 </div>
