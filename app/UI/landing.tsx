@@ -84,7 +84,6 @@ export default function Landing() {
     }
 
     const createTicTacToeBoard = async () => {
-
         const response = await fetch('/api/tic-tac-toe', {
             method: 'POST',
             headers: {
@@ -93,18 +92,12 @@ export default function Landing() {
             body: JSON.stringify({})
         });
 
-        const data = await response.json();
-        console.log("Hey Shane, data is " + JSON.stringify(data));
-
-        /*
-
         if (response.ok) {
             const data = await response.json();
             return data[0].id;
         } else {
             return -1;
         }
-            */
     }
 
     const patchRoomData = async (roomId: string, gameId: string, boardId: number) => {
@@ -128,6 +121,7 @@ export default function Landing() {
     const chooseGame = async (game: string) => {
         if (game === 'tic-tac-toe') {
             const boardId = await createTicTacToeBoard();
+            console.log('boardId is ' + boardId);
 
             /*if (boardId != -1) {
 
