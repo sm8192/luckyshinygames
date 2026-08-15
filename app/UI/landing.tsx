@@ -54,11 +54,9 @@ export default function Landing() {
     }
 
     const createNewRoom = async () => {
-        console.log("Creating new room...");
-        /*
-
         let roomCode;
         let roomCodeExists = true;
+        let count = 0;
         const characters = 'abcdefghijklmnopqrstuvwxyz';
         do {
             roomCode = '';
@@ -68,7 +66,9 @@ export default function Landing() {
                 const randomChar = characters[randomIndex];
                 roomCode += randomChar;
             }
-
+            count++;
+            console.log('room code: ' + roomCode);
+            /*
             const response = await fetch('/api/room/exists?room_id=' + roomCode, {
                 method: 'GET',
                 headers: {
@@ -77,15 +77,14 @@ export default function Landing() {
             });
 
             const data = await response.json();
-
+            
             if (!data[0].exists) {
                 roomCodeExists = false;
-            }
+            }*/
 
-        } while (roomCodeExists)
+        } while (roomCodeExists && count < 10)
 
-        postRoom(roomCode);
-        */
+        // postRoom(roomCode);
     }
 
     const createTicTacToeBoard = async () => {
