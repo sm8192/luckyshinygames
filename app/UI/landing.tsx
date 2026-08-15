@@ -16,8 +16,6 @@ export default function Landing() {
         const formData = new FormData(event.currentTarget);
         const enteredRoomCode = String(formData.get("room-code"));
 
-        console.log("Hey Shane, enteredRoomCode is: " + enteredRoomCode);
-
         const response = await fetch('/api/room?room_id=' + enteredRoomCode, {
             method: 'GET',
             headers: {
@@ -26,8 +24,15 @@ export default function Landing() {
         });
 
         if(response.ok) {
-            console.log("Hey Shane, response is ok");
-            //const data = await response.json();
+            const data = await response.json();
+            if(data[0] && data[0].game && data[0].board_id) {
+                console.log("found");
+                //setGame(data[0].game);
+                //setBoardId(data[0].board_id);
+            } else {
+                console.log("not found");
+                //setRoomNotFound(true);
+            }
         }
         /*
 
