@@ -10,12 +10,10 @@ export default function Landing() {
     const [boardId, setBoardId] = useState<number>(-1);
     const [roomCode, setRoomCode] = useState<string>('');
     const [roomNotFound, setRoomNotFound] = useState<boolean>(false);
+    const [isLoading, setIsLoading] = useState<boolean>(false);
 
     const roomCodeSubmit = async (event: SubmitEvent<HTMLFormElement>) => {
         event.preventDefault();
-
-
-        
 
         const formData = new FormData(event.currentTarget);
         const enteredRoomCode = String(formData.get("room-code"));
@@ -27,16 +25,19 @@ export default function Landing() {
             }
         });
 
-        if(response.ok) {
+        if (response.ok) {
+            setIsLoading(true);
             const data = await response.json();
-            if(data[0] && data[0].game && data[0].board_id) {
-                console.log("Room found, game: " + data[0].game + ", board_id: " + data[0].board_id);
-                //setGame(data[0].game);
-                //setBoardId(data[0].board_id);
+            if (data[0] && data[0].game && data[0].board_id) {
+                setRoomNotFound(false);
+                setRoomCode(enteredRoomCode);
+                setGame(data[0].game);
+                setBoardId(data[0].board_id);
             } else {
                 setRoomNotFound(true);
             }
-        } 
+            setIsLoading(false);
+        }
         /*
 
         const fetchRoomData = (code: string) => {
@@ -170,12 +171,18 @@ export default function Landing() {
 
     return (
         <div className="m-8">
-            {!roomCode ?
-                <RoomEntryForm roomCodeSubmit={roomCodeSubmit} roomNotFound={roomNotFound} createNewRoom={createNewRoom} /> :
+            {!isLoading ?
                 <div>
-                    {!game ?
-                        <GameSelect chooseGame={chooseGame} /> :
-                        <Room game={game} boardId={boardId} />}
+                    {!roomCode ?
+                        <RoomEntryForm roomCodeSubmit={roomCodeSubmit} roomNotFound={roomNotFound} createNewRoom={createNewRoom} /> :
+                        <div>
+                            {!game || !boardId ?
+                                <GameSelect chooseGame={chooseGame} /> :
+                                <Room game={game} boardId={boardId} />}
+                        </div>}
+                </div> :
+                <div>
+                    <h5>Loading</h5>
                 </div>}
         </div>
     )
