@@ -125,6 +125,7 @@ export default function Landing() {
     }
 
     const chooseGame = async (game: string) => {
+        console.log('new game is ' + game);
         /*
         if (game === 'tic-tac-toe') {
             const boardId = await createTicTacToeBoard();
