@@ -93,6 +93,9 @@ export default function Landing() {
             body: JSON.stringify({})
         });
 
+        const data = await response.json();
+        console.log("Hey Shane, data is " + JSON.stringify(data));
+
         /*
 
         if (response.ok) {
