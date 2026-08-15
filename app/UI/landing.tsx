@@ -101,7 +101,6 @@ export default function Landing() {
     }
 
     const patchRoomData = async (roomId: string, gameId: string, boardId: number) => {
-        /*
         const response = await fetch('/api/room', {
             method: 'PATCH',
             headers: {
@@ -115,7 +114,6 @@ export default function Landing() {
         } else {
             return false;
         }
-            */
     }
 
     const chooseGame = async (game: string) => {
@@ -123,15 +121,16 @@ export default function Landing() {
             const boardId = await createTicTacToeBoard();
             console.log('boardId is ' + boardId);
 
-            /*if (boardId != -1) {
+            if (boardId != -1) {
 
                 const patchSuccess = await patchRoomData(roomCode, game, boardId);
 
-                if (patchSuccess) {
+                console.log('patchSuccess is ' + patchSuccess);
+
+                /*if (patchSuccess) {
                     setBoardId(boardId);
-                }
+                }*/
             }
-                */
         }
 
         //setGame(game);
