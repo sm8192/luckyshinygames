@@ -13,11 +13,12 @@ export default function Landing() {
     const roomCodeSubmit = async (event: SubmitEvent<HTMLFormElement>) => {
         event.preventDefault();
 
-        console.log("Hey Shane, this ran async");
-        /*
-
         const formData = new FormData(event.currentTarget);
         const newRoomCode = String(formData.get("room-code"));
+
+        console.log("Hey Shane, newRoomCode is: " + newRoomCode);
+
+        /*
 
         const fetchRoomData = (code: string) => {
             fetch('/api/room?room_id=' + code)
