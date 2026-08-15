@@ -35,33 +35,10 @@ export default function Landing() {
                 setRoomNotFound(true);
             }
         }
-        /*
-
-        const fetchRoomData = (code: string) => {
-            fetch('/api/room?room_id=' + code)
-                .then((res) => res.json())
-                .then((data) => {
-                    if (data[0]) {
-                        if (data[0].game) {
-                            setGame(data[0].game);
-                        }
-                        if (data[0].board_id) {
-                            setBoardId(data[0].board_id);
-                        }
-                    } else {
-                        setRoomNotFound(true);
-                    }
-                });
-        }
-
-        if (newRoomCode) {
-            fetchRoomData(newRoomCode);
-        } */
     }
 
     const postRoom = async (code: string) => {
         /*
-
         const response = await fetch('/api/room', {
             method: 'POST',
             headers: {
@@ -77,6 +54,7 @@ export default function Landing() {
     }
 
     const createNewRoom = async () => {
+        console.log("Creating new room...");
         /*
 
         let roomCode;
