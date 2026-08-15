@@ -12,7 +12,11 @@ export default function Landing() {
     const [roomNotFound, setRoomNotFound] = useState<boolean>(false);
 
     const roomCodeSubmit = async (event: SubmitEvent<HTMLFormElement>) => {
+        console.log("Hey Shane, this ran");
         event.preventDefault();
+
+
+        /*
 
         const formData = new FormData(event.currentTarget);
         const enteredRoomCode = String(formData.get("room-code"));
@@ -32,7 +36,7 @@ export default function Landing() {
             } else {
                 setRoomNotFound(true);
             }
-        }
+        } */
         /*
 
         const fetchRoomData = (code: string) => {
