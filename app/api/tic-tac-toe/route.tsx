@@ -22,8 +22,9 @@ export async function POST(request: NextRequest) {
         const sql = neon(process.env.DATABASE_URL);
 
         const nullBoard = [['', '', ''], ['', '', ''], ['', '', '']];
+        const boardString = JSON.stringify(nullBoard);
 
-        const response = await sql`INSERT INTO tictactoe_boards (board_state, active_player) VALUES (${nullBoard}, 'X') RETURNING id`;
+        const response = await sql`INSERT INTO tictactoe_boards (board_state, active_player) VALUES (${boardString}, 'X') RETURNING id`;
 
         return NextResponse.json(response, { status: 201 });
     } catch (error: unknown) {
