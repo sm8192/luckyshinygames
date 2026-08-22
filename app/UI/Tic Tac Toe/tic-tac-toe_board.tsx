@@ -22,6 +22,7 @@ export default function TicTacToeBoard({ boardId }: ticTacToeBoardProps) {
             fetch('/api/tic-tac-toe?id=' + id)
                 .then((res) => res.json())
                 .then((data) => {
+                    console.log("Hey Shane, data is " + data);
                     setLoading(false);
                     setBoardState(data[0].board_state);
                     setPlayers(data[0].players);
