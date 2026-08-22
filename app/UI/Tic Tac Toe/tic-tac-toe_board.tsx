@@ -24,7 +24,7 @@ export default function TicTacToeBoard({ boardId }: ticTacToeBoardProps) {
                 .then((data) => {
                     console.log("Hey Shane, data is " + JSON.stringify(data));
                     setLoading(false);
-                    setBoardState(data[0].board_state);
+                    setBoardState(data[0].board_state.board);
                     setPlayers(data[0].players);
                     setActivePlayer(data[0].active_player);
                 });
